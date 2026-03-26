@@ -41,6 +41,25 @@ const data = [
     applications: 0,
     status: 'New',
   },
+  {
+    id: 3,
+    position: 'Frontend Developer',
+    employer: 'Google',
+    jobType: 'Full-Time',
+    salary: '$12/hr',
+    applications: 0,
+    status: 'New',
+  },
+
+  {
+    id: 5,
+    position: 'Backend Developer',
+    employer: 'Google',
+    jobType: 'Full-Time',
+    salary: '$12/hr',
+    applications: 0,
+    status: 'New',
+  },
 ];
 
 export default function Jobs() {
@@ -73,8 +92,11 @@ export default function Jobs() {
           </TableHeader>
 
           <TableBody>
-            {data.map((item) => (
-              <TableRow key={item.id}>
+            {data.map((item, index) => (
+              <TableRow
+                key={item.id}
+                className={`${index % 2 === 0 && 'bg-sidebar'}`}
+              >
                 <TableCell>{item.position}</TableCell>
                 <TableCell>{item.employer}</TableCell>
                 <TableCell>{item.jobType}</TableCell>

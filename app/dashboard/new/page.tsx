@@ -11,7 +11,10 @@ export default function New() {
   const [state, formAction, isPending] = useActionState(createJob, null);
 
   return (
-    <form action={formAction} className='max-w-2xl space-y-6  ml-5 border p-10'>
+    <form
+      action={formAction}
+      className='max-w-2xl space-y-6   border p-10 bg-sidebar'
+    >
       <div className='flex gap-5'>
         {/* Position */}
         <div className='space-y-2 flex-1'>
