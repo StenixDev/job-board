@@ -9,8 +9,16 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, MoreHorizontalIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '../ui/dropdown-menu';
+import { Button } from '../ui/button';
 
 const data = [
   {
@@ -35,7 +43,7 @@ export default function Jobs() {
     <div className='w-full'>
       {/* Desktop Table */}
       <div className='hidden md:block'>
-        <Table>
+        <Table className='border'>
           <TableHeader>
             <TableRow>
               <TableHead className='font-bold'>Position</TableHead>
@@ -44,6 +52,7 @@ export default function Jobs() {
               <TableHead className='font-bold'>Salary</TableHead>
               <TableHead className='font-bold'>Applications</TableHead>
               <TableHead className='font-bold'>Status</TableHead>
+              <TableHead className='font-bold'>Actions</TableHead>
             </TableRow>
           </TableHeader>
 
@@ -56,6 +65,24 @@ export default function Jobs() {
                 <TableCell>{item.salary}</TableCell>
                 <TableCell>{item.applications}</TableCell>
                 <TableCell>{item.status}</TableCell>
+                <TableCell>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <Button variant='ghost' size='icon' className='size-8'>
+                        <MoreHorizontalIcon />
+                        <span className='sr-only'>Open menu</span>
+                      </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align='end'>
+                      <DropdownMenuItem>Edit</DropdownMenuItem>
+                      <DropdownMenuItem>Duplicate</DropdownMenuItem>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuItem variant='destructive'>
+                        Delete
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
@@ -69,12 +96,12 @@ export default function Jobs() {
 
           return (
             <div key={item.id} className='border rounded-lg p-3'>
-              {/* Title (Clickable) */}
+              {/* Title (Position) */}
               <button
                 onClick={() => toggleRow(item.id)}
-                className='flex w-full items-center justify-between font-medium'
+                className='flex w-full items-center justify-between font-semibold text-left'
               >
-                {item.title}
+                {item.position}
                 <ChevronDown
                   className={cn(
                     'h-4 w-4 transition-transform',
@@ -83,18 +110,48 @@ export default function Jobs() {
                 />
               </button>
 
-              {/* Expandable Content */}
+              {/* Expandable Details */}
               {isOpen && (
-                <div className='mt-3 space-y-1 text-sm text-muted-foreground'>
+                <div className='mt-3 space-y-2 text-sm text-muted-foreground'>
                   <p>
                     <strong>Company:</strong> {item.company}
                   </p>
                   <p>
-                    <strong>Location:</strong> {item.location}
+                    <strong>Job Type:</strong> {item.jobType}
                   </p>
                   <p>
                     <strong>Salary:</strong> {item.salary}
                   </p>
+                  <p>
+                    <strong>Applications:</strong> {item.applications}
+                  </p>
+                  <p>
+                    <strong>Status:</strong> {item.status}
+                  </p>
+
+                  {/* Actions */}
+                  <div className='pt-2'>
+                    <DropdownMenu>
+                      <DropdownMenuTrigger asChild>
+                        <Button
+                          variant='outline'
+                          size='sm'
+                          className='flex items-center gap-2'
+                        >
+                          <MoreHorizontalIcon className='h-4 w-4' />
+                          Actions
+                        </Button>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent align='end'>
+                        <DropdownMenuItem>Edit</DropdownMenuItem>
+                        <DropdownMenuItem>Duplicate</DropdownMenuItem>
+                        <DropdownMenuSeparator />
+                        <DropdownMenuItem variant='destructive'>
+                          Delete
+                        </DropdownMenuItem>
+                      </DropdownMenuContent>
+                    </DropdownMenu>
+                  </div>
                 </div>
               )}
             </div>
