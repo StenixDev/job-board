@@ -25,7 +25,7 @@ const data = [
   {
     id: 1,
     position: 'Frontend Developer',
-    company: 'Google',
+    employer: 'Google',
     jobType: 'Full-Time',
     salary: '$12/hr',
     applications: 0,
@@ -35,7 +35,7 @@ const data = [
   {
     id: 2,
     position: 'Backend Developer',
-    company: 'Google',
+    employer: 'Google',
     jobType: 'Full-Time',
     salary: '$12/hr',
     applications: 0,
@@ -63,7 +63,7 @@ export default function Jobs() {
           <TableHeader>
             <TableRow>
               <TableHead className='font-bold'>Position</TableHead>
-              <TableHead className='font-bold'>Company</TableHead>
+              <TableHead className='font-bold'>Employer</TableHead>
               <TableHead className='font-bold'>Job Type</TableHead>
               <TableHead className='font-bold'>Salary</TableHead>
               <TableHead className='font-bold'>Applications</TableHead>
@@ -76,7 +76,7 @@ export default function Jobs() {
             {data.map((item) => (
               <TableRow key={item.id}>
                 <TableCell>{item.position}</TableCell>
-                <TableCell>{item.company}</TableCell>
+                <TableCell>{item.employer}</TableCell>
                 <TableCell>{item.jobType}</TableCell>
                 <TableCell>{item.salary}</TableCell>
                 <TableCell>{item.applications}</TableCell>
