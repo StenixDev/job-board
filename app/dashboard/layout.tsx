@@ -30,8 +30,6 @@ export default function DashboardLayout({
           <header className='flex h-16 items-center gap-2 px-4'>
             <SidebarTrigger />
 
-            <Separator orientation='vertical' className='h-4' />
-
             <Breadcrumb>
               <BreadcrumbList>
                 <BreadcrumbItem className='hidden md:block'>
