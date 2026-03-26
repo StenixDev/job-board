@@ -19,11 +19,22 @@ import {
   DropdownMenuTrigger,
 } from '../ui/dropdown-menu';
 import { Button } from '../ui/button';
+import Link from 'next/link';
 
 const data = [
   {
     id: 1,
     position: 'Frontend Developer',
+    company: 'Google',
+    jobType: 'Full-Time',
+    salary: '$12/hr',
+    applications: 0,
+    status: 'New',
+  },
+
+  {
+    id: 2,
+    position: 'Backend Developer',
     company: 'Google',
     jobType: 'Full-Time',
     salary: '$12/hr',
@@ -41,6 +52,11 @@ export default function Jobs() {
 
   return (
     <div className='w-full'>
+      <div className='my-5'>
+        <Link href={'/dashboard/new'}>
+          <Button className='cursor-pointer'>Add New</Button>
+        </Link>
+      </div>
       {/* Desktop Table */}
       <div className='hidden md:block'>
         <Table className='border'>
@@ -139,7 +155,6 @@ export default function Jobs() {
                           className='flex items-center gap-2'
                         >
                           <MoreHorizontalIcon className='h-4 w-4' />
-                          Actions
                         </Button>
                       </DropdownMenuTrigger>
                       <DropdownMenuContent align='end'>
