@@ -1,6 +1,6 @@
 'use client';
 
-import { useActionState } from 'react';
+import { useActionState, useEffect } from 'react';
 import { createJob } from '@/actions/jobs';
 
 import { Button } from '@/components/ui/button';
@@ -10,6 +10,11 @@ import { toast } from 'sonner';
 
 export default function New() {
   const [state, formAction, isPending] = useActionState(createJob, null);
+  useEffect(() => {
+    if (state?.success) {
+      toast('Job posted successfully!');
+    }
+  }, [state?.success]);
 
   return (
     <form
@@ -76,9 +81,6 @@ export default function New() {
           {isPending ? 'Posting...' : 'Post Job'}
         </Button>
       </div>
-
-      {/* Success */}
-      {state?.success && toast('Job posted successfully!')}
     </form>
   );
 }
