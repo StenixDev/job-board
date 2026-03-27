@@ -6,6 +6,7 @@ import { createJob } from '@/actions/jobs';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { toast } from 'sonner';
 
 export default function New() {
   const [state, formAction, isPending] = useActionState(createJob, null);
@@ -28,9 +29,9 @@ export default function New() {
         {/* Company */}
         <div className='space-y-2 flex-1'>
           <label className='text-sm font-medium'>Employer</label>
-          <Input name='company' />
-          {state?.errors?.company && (
-            <p className='text-sm text-red-500'>{state.errors.company}</p>
+          <Input name='employer' />
+          {state?.errors?.employer && (
+            <p className='text-sm text-red-500'>{state.errors.employer}</p>
           )}
         </div>
       </div>
@@ -77,9 +78,7 @@ export default function New() {
       </div>
 
       {/* Success */}
-      {state?.success && (
-        <p className='text-green-600 text-sm'>Job posted successfully!</p>
-      )}
+      {state?.success && toast('Job posted successfully!')}
     </form>
   );
 }

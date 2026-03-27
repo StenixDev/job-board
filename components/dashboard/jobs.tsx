@@ -152,7 +152,7 @@ export default function Jobs() {
               {isOpen && (
                 <div className='mt-3 space-y-2 text-sm text-muted-foreground'>
                   <p>
-                    <strong>Company:</strong> {item.company}
+                    <strong>Company:</strong> {item.employer}
                   </p>
                   <p>
                     <strong>Job Type:</strong> {item.jobType}
