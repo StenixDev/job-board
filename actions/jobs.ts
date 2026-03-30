@@ -8,7 +8,7 @@ const jobSchema = z.object({
   description: z.string().optional(),
   employer: z.string().min(1, 'employer is required'),
   jobType: z.string().min(1, 'Job type is required'),
-  salary: z.string().optional(),
+  amount: z.string().optional(),
 });
 
 export async function createJob(prevState: any, formData: FormData) {
@@ -18,7 +18,7 @@ export async function createJob(prevState: any, formData: FormData) {
     description: formData.get('description'),
     employer: formData.get('employer'),
     jobType: formData.get('jobType'),
-    salary: formData.get('salary'),
+    amount: formData.get('amount'),
   };
 
   // 3. Validate using Zod

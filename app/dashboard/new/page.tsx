@@ -49,8 +49,8 @@ export default function New() {
       <div className='flex gap-5'>
         {/* Salary */}
         <div className='space-y-2 flex-1'>
-          <label className='text-sm font-medium'>Salary</label>
-          <Input name='salary' />
+          <label className='text-sm font-medium'>Amount</label>
+          <Input name='amount' />
         </div>
 
         {/* Job Type (✅ Native select — recommended) */}
@@ -70,6 +70,36 @@ export default function New() {
           )}
         </div>
       </div>
+
+      <hr />
+
+      <div className='flex gap-5'>
+        {/* Email Address */}
+        <div className='space-y-2 flex-1'>
+          <label className='text-sm font-medium'>Email Address</label>
+          <Input name='email' />
+          {state?.errors?.email && (
+            <p className='text-sm text-red-500'>{state.errors.email}</p>
+          )}
+        </div>
+
+        {/* Phone */}
+        <div className='space-y-2 flex-1'>
+          <label className='text-sm font-medium'>Phone #</label>
+          <Input name='phone' />
+          {state?.errors?.phone && (
+            <p className='text-sm text-red-500'>{state.errors.phone}</p>
+          )}
+        </div>
+      </div>
+
+      {/* Address */}
+
+      <label className='text-sm font-medium'>Address</label>
+      <Input name='address' />
+      {state?.errors?.address && (
+        <p className='text-sm text-red-500'>{state.errors.address}</p>
+      )}
 
       {/* Submit */}
       <div className='w-30'>
