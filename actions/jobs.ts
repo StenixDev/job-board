@@ -33,7 +33,11 @@ export async function createJob(prevState: any, formData: FormData) {
       errors[field] = issue.message;
     });
 
-    return { errors };
+    return {
+      success: false,
+      errors,
+      values: rawData,
+    };
   }
 
   const data = result.data;

@@ -25,7 +25,7 @@ export default function New() {
         {/* Position */}
         <div className='space-y-2 flex-1'>
           <label className='text-sm font-medium'>Job</label>
-          <Input name='position' />
+          <Input name='position' defaultValue={state?.values?.position} />
           {state?.errors?.position && (
             <p className='text-sm text-red-500'>{state.errors.position}</p>
           )}
