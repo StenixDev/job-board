@@ -86,6 +86,7 @@ export default function New() {
         <div className='space-y-2 flex-1'>
           <label className='text-sm font-medium'>Job Type</label>
           <select
+            key={(state?.values?.jobType as string) ?? 'jobType'}
             name='jobType'
             className='w-full rounded-md border px-3 py-2 text-sm'
             defaultValue={
