@@ -9,9 +9,12 @@ const jobSchema = z.object({
   employer: z.string().min(1, 'employer is required'),
   jobType: z.string().min(1, 'Job type is required'),
   amount: z.string().optional(),
+  email: z.email(),
+  phone: z.string(),
+  address: z.string(),
 });
 
-export async function createJob(prevState: any, formData: FormData) {
+export async function createJob(prevState: unknown, formData: FormData) {
   // 2. Convert FormData → object
   const rawData = {
     position: formData.get('position'),
@@ -19,6 +22,9 @@ export async function createJob(prevState: any, formData: FormData) {
     employer: formData.get('employer'),
     jobType: formData.get('jobType'),
     amount: formData.get('amount'),
+    email: formData.get('email'),
+    phone: formData.get('phone'),
+    address: formData.get('address'),
   };
 
   // 3. Validate using Zod

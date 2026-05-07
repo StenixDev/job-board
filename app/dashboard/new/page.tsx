@@ -25,7 +25,14 @@ export default function New() {
         {/* Position */}
         <div className='space-y-2 flex-1'>
           <label className='text-sm font-medium'>Job</label>
-          <Input name='position' defaultValue={state?.values?.position} />
+          <Input
+            name='position'
+            defaultValue={
+              typeof state?.values?.position === 'string'
+                ? state.values.position
+                : ''
+            }
+          />
           {state?.errors?.position && (
             <p className='text-sm text-red-500'>{state.errors.position}</p>
           )}
@@ -34,7 +41,14 @@ export default function New() {
         {/* Company */}
         <div className='space-y-2 flex-1'>
           <label className='text-sm font-medium'>Employer</label>
-          <Input name='employer' />
+          <Input
+            name='employer'
+            defaultValue={
+              typeof state?.values?.employer === 'string'
+                ? state.values.employer
+                : ''
+            }
+          />
           {state?.errors?.employer && (
             <p className='text-sm text-red-500'>{state.errors.employer}</p>
           )}
@@ -44,13 +58,28 @@ export default function New() {
       {/* Description */}
       <div className='space-y-2'>
         <label className='text-sm font-medium'>Description</label>
-        <Textarea name='description' className='min-h-30' />
+        <Textarea
+          name='description'
+          className='min-h-30'
+          defaultValue={
+            typeof state?.values?.description === 'string'
+              ? state.values.description
+              : ''
+          }
+        />
       </div>
       <div className='flex gap-5'>
         {/* Salary */}
         <div className='space-y-2 flex-1'>
           <label className='text-sm font-medium'>Amount</label>
-          <Input name='amount' />
+          <Input
+            name='amount'
+            defaultValue={
+              typeof state?.values?.amount === 'string'
+                ? state.values.amount
+                : ''
+            }
+          />
         </div>
 
         {/* Job Type (✅ Native select — recommended) */}
@@ -59,6 +88,11 @@ export default function New() {
           <select
             name='jobType'
             className='w-full rounded-md border px-3 py-2 text-sm'
+            defaultValue={
+              typeof state?.values?.jobType === 'string'
+                ? state.values.jobType
+                : ''
+            }
           >
             <option value=''>Select job type</option>
             <option value='Full-Time'>Full-Time</option>
@@ -77,7 +111,12 @@ export default function New() {
         {/* Email Address */}
         <div className='space-y-2 flex-1'>
           <label className='text-sm font-medium'>Email Address</label>
-          <Input name='email' />
+          <Input
+            name='email'
+            defaultValue={
+              typeof state?.values?.email === 'string' ? state.values.email : ''
+            }
+          />
           {state?.errors?.email && (
             <p className='text-sm text-red-500'>{state.errors.email}</p>
           )}
@@ -86,7 +125,12 @@ export default function New() {
         {/* Phone */}
         <div className='space-y-2 flex-1'>
           <label className='text-sm font-medium'>Phone #</label>
-          <Input name='phone' />
+          <Input
+            name='phone'
+            defaultValue={
+              typeof state?.values?.phone === 'string' ? state.values.phone : ''
+            }
+          />
           {state?.errors?.phone && (
             <p className='text-sm text-red-500'>{state.errors.phone}</p>
           )}
@@ -96,7 +140,12 @@ export default function New() {
       {/* Address */}
 
       <label className='text-sm font-medium'>Address</label>
-      <Input name='address' />
+      <Input
+        name='address'
+        defaultValue={
+          typeof state?.values?.address === 'string' ? state.values.address : ''
+        }
+      />
       {state?.errors?.address && (
         <p className='text-sm text-red-500'>{state.errors.address}</p>
       )}
