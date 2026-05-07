@@ -19,7 +19,7 @@ export default function New() {
   return (
     <form
       action={formAction}
-      className='max-w-full space-y-6   border p-10 bg-sidebar'
+      className='max-w-full space-y-6   border p-10 bg-sidebar [&_input]:bg-white [&_select]:bg-white [&_textarea]:bg-white'
     >
       <div className='flex flex-col gap-5 sm:flex-row'>
         {/* Position */}
