@@ -19,11 +19,11 @@ export default function New() {
   return (
     <form
       action={formAction}
-      className='max-w-2xl space-y-6   border p-10 bg-sidebar'
+      className='max-w-full space-y-6   border p-10 bg-sidebar'
     >
-      <div className='flex gap-5'>
+      <div className='flex flex-col gap-5 sm:flex-row'>
         {/* Position */}
-        <div className='space-y-2 flex-1'>
+        <div className='space-y-2 sm:flex-1'>
           <label className='text-sm font-medium'>Job</label>
           <Input
             name='position'
@@ -39,7 +39,7 @@ export default function New() {
         </div>
 
         {/* Company */}
-        <div className='space-y-2 flex-1'>
+        <div className='space-y-2 sm:flex-1'>
           <label className='text-sm font-medium'>Employer</label>
           <Input
             name='employer'
@@ -68,9 +68,9 @@ export default function New() {
           }
         />
       </div>
-      <div className='flex gap-5'>
+      <div className='flex flex-col gap-5 sm:flex-row'>
         {/* Salary */}
-        <div className='space-y-2 flex-1'>
+        <div className='space-y-2 sm:flex-1'>
           <label className='text-sm font-medium'>Amount</label>
           <Input
             name='amount'
@@ -82,8 +82,8 @@ export default function New() {
           />
         </div>
 
-        {/* Job Type (✅ Native select — recommended) */}
-        <div className='space-y-2 flex-1'>
+        {/* Job Type */}
+        <div className='space-y-2 sm:flex-1'>
           <label className='text-sm font-medium'>Job Type</label>
           <select
             key={(state?.values?.jobType as string) ?? 'jobType'}
@@ -108,9 +108,9 @@ export default function New() {
 
       <hr />
 
-      <div className='flex gap-5'>
+      <div className='flex flex-col gap-5 sm:flex-row'>
         {/* Email Address */}
-        <div className='space-y-2 flex-1'>
+        <div className='space-y-2 sm:flex-1'>
           <label className='text-sm font-medium'>Email Address</label>
           <Input
             name='email'
@@ -124,7 +124,7 @@ export default function New() {
         </div>
 
         {/* Phone */}
-        <div className='space-y-2 flex-1'>
+        <div className='space-y-2 sm:flex-1'>
           <label className='text-sm font-medium'>Phone #</label>
           <Input
             name='phone'
